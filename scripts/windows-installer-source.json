@@ -1,0 +1,10 @@
+{
+  "repository": "zjun96472-blip/token-usage-lab",
+  "tag": "v0.1.0-beta.1",
+  "archive": "TokenUsageLab-0.1.0-beta.1-windows-x64.zip",
+  "archiveSha256": "01906abd9821fca41abf15bc75fd81de1f954db7f6c07ca148eaadf525f57e08",
+  "provenanceSha256": "37044db7ca4a7565c5a05fe9fa6475d8759e947ed5337d43f63c7380240b45c8",
+  "executableSha256": "25dcb806b754610dba7c25bb2751ed6e096a33c9fa1f3aab36b7f4521fe1128e",
+  "runtimeFileCount": 64,
+  "directory": "TokenUsageLab-0.1.0-windows-x64-tryout-20261009T044105Z"
+}

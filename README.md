@@ -4,19 +4,21 @@
 
 ## 下载与安装
 
-当前版本：**v0.1.0-beta.1，公开测试版**。普通用户无需下载源码、安装开发环境或配置 API Key。
+当前分发版本：**v0.1.0-beta.2，公开测试版**。本次新增 Windows EXE 安装包，Mac 沿用 beta.1。普通用户无需下载源码、安装开发环境或配置 API Key。
 
-| 你的电脑              | 下载                                                                                                                                             | 安装方法                          |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------- |
-| Mac，Apple M 系列芯片 | [下载 DMG](https://github.com/zjun96472-blip/token-usage-lab/releases/download/v0.1.0-beta.1/TokenUsageLab-0.1.0-beta.1-macos-apple-silicon.dmg) | 打开 DMG，将应用拖入 Applications |
-| Mac，Intel 芯片       | [下载 DMG](https://github.com/zjun96472-blip/token-usage-lab/releases/download/v0.1.0-beta.1/TokenUsageLab-0.1.0-beta.1-macos-intel.dmg)         | 打开 DMG，将应用拖入 Applications |
-| Windows x64           | [下载便携 ZIP](https://github.com/zjun96472-blip/token-usage-lab/releases/download/v0.1.0-beta.1/TokenUsageLab-0.1.0-beta.1-windows-x64.zip)     | 解压，打开 TokenUsageLab.exe      |
+| 你的电脑              | 下载                                                                                                                                                  | 安装方法                          |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| Mac，Apple M 系列芯片 | [下载 DMG](https://github.com/zjun96472-blip/token-usage-lab/releases/download/v0.1.0-beta.1/TokenUsageLab-0.1.0-beta.1-macos-apple-silicon.dmg)      | 打开 DMG，将应用拖入 Applications |
+| Mac，Intel 芯片       | [下载 DMG](https://github.com/zjun96472-blip/token-usage-lab/releases/download/v0.1.0-beta.1/TokenUsageLab-0.1.0-beta.1-macos-intel.dmg)              | 打开 DMG，将应用拖入 Applications |
+| Windows x64           | [下载 EXE 安装包](https://github.com/zjun96472-blip/token-usage-lab/releases/download/v0.1.0-beta.2/TokenUsageLab-0.1.0-beta.2-windows-x64-Setup.exe) | 双击安装，从开始菜单打开          |
 
-[所有版本与更新记录](https://github.com/zjun96472-blip/token-usage-lab/releases) · [Mac 使用说明书](docs/MACOS-MANUAL.md) · [Windows 试用说明](docs/TRYOUT.md)
+[所有版本与更新记录](https://github.com/zjun96472-blip/token-usage-lab/releases) · [Mac 使用说明书](docs/MACOS-MANUAL.md) · [Windows 安装说明](docs/WINDOWS-INSTALLER.md)
 
-交给本地 Agent 安装时，可以使用 Release 中名称含 `with-guide.zip` 的 Mac 分享包，内含 `README.md`、安装文件和校验清单。GitHub 自动提供的 **Source code** 压缩包是开发者源码，不是安装程序。
+Windows 安装包包含程序、中文 `README.md` 说明书、许可证、开始菜单入口和卸载程序，默认只安装到当前用户。缺少 WebView2 时会联网调用 Microsoft 官方安装程序。仍需免安装版时可选择 [Windows 便携 ZIP](https://github.com/zjun96472-blip/token-usage-lab/releases/download/v0.1.0-beta.1/TokenUsageLab-0.1.0-beta.1-windows-x64.zip)。
 
-**安全提示：**Mac 包没有 Apple Developer ID 签名或公证，Windows 包也未数字签名，首次打开可能被系统或公司策略拦截。请确认来源、核对 Release 的 `SHA256SUMS.txt`，按系统单应用授权流程或联系 IT 处理；不要关闭防护、删除隔离属性或运行绕过脚本。校验和不能替代发布者身份验证。
+交给本地 Agent 安装时，可以使用 [beta.1 Release](https://github.com/zjun96472-blip/token-usage-lab/releases/tag/v0.1.0-beta.1) 中名称含 `with-guide.zip` 的 Mac 分享包，内含 `README.md`、安装文件和校验清单。GitHub 自动提供的 **Source code** 压缩包是开发者源码，不是安装程序。
+
+**安全提示：**Mac 包没有 Apple Developer ID 签名或公证，Windows 包也未数字签名，首次打开可能被系统或公司策略拦截。请确认来源、核对 Release 的 SHA-256 清单，按系统单应用授权流程或联系 IT 处理；不要关闭防护、删除隔离属性或运行绕过脚本。校验和不能替代发布者身份验证。
 
 Mac 构建目标为 macOS 12 及以上，原生启动已在 macOS 15.7.9 的 Apple Silicon、Intel 环境验证；旧系统和真实 Mac 工具日志仍待实机验证。Windows 包在 Windows 11 x64 开发机完成运行验收，需要系统具备 Microsoft Edge WebView2 Runtime；不宣称已验证全部 Windows 设备。
 
