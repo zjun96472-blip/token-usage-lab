@@ -1,0 +1,9 @@
+node_modules/
+.acceptance/
+src-tauri/target/
+src-tauri/gen/
+dist/
+release/
+*.tsbuildinfo
+*.log
+.env*

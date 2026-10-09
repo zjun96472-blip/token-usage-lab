@@ -1,0 +1,106 @@
+{
+  "cargo:alloc-stdlib@0.2.2": {
+    "revision": "6032b6a9b20e03737135c55a0270ccffcc1438ef",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "cargo:convert_case@0.4.0": {
+    "revision": "637e1aec1717e3a4af07dff1c1dec7a4eb971b2a",
+    "revisionBasis": "repository-license-snapshot-not-package-commit"
+  },
+  "cargo:match_token@0.1.0": {
+    "revision": "0e4e125b8672abad4ff14d1e0043d3be9305af6a",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "cargo:phf@0.10.1": {
+    "revision": "bed01538ae576876f11189d541875d228acef9e8",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "cargo:phf@0.8.0": {
+    "revision": "81c7cc5b48649108428671d3b8ad151f6fbdb359",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "cargo:phf_codegen@0.8.0": {
+    "revision": "81c7cc5b48649108428671d3b8ad151f6fbdb359",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "cargo:phf_generator@0.10.0": {
+    "revision": "3ea14b2166553ad6e7b9afe7244144f5d661b6c6",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "cargo:phf_generator@0.8.0": {
+    "revision": "81c7cc5b48649108428671d3b8ad151f6fbdb359",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "cargo:phf_macros@0.10.0": {
+    "revision": "3cc6f05cb07933af4cf886645d1170bdcb306b6b",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "cargo:phf_shared@0.10.0": {
+    "revision": "3ea14b2166553ad6e7b9afe7244144f5d661b6c6",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "cargo:phf_shared@0.8.0": {
+    "revision": "81c7cc5b48649108428671d3b8ad151f6fbdb359",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "cargo:selectors@0.24.0": {
+    "revision": "e82d7868d999d84f6d59719e4c397e5252aecb85",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "cargo:webview2-com-macros@0.8.1": {
+    "revision": "dffa41a8a46d3f5565eefbff2de57d38d399f158",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "cargo:webview2-com-sys@0.38.2": {
+    "revision": "b74dc5e2b394044bea5191052868ce7a106c202c",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "cargo:webview2-com@0.38.2": {
+    "revision": "b74dc5e2b394044bea5191052868ce7a106c202c",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "npm:@radix-ui/react-compose-refs@1.1.2": {
+    "revision": "fcef0668a5c827e5a4baac405474d75680f9a4eb",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "npm:@radix-ui/react-context@1.1.2": {
+    "revision": "fcef0668a5c827e5a4baac405474d75680f9a4eb",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "npm:@radix-ui/react-id@1.1.1": {
+    "revision": "fcef0668a5c827e5a4baac405474d75680f9a4eb",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "npm:@radix-ui/react-use-callback-ref@1.1.1": {
+    "revision": "fcef0668a5c827e5a4baac405474d75680f9a4eb",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "npm:@radix-ui/react-use-escape-keydown@1.1.1": {
+    "revision": "fcef0668a5c827e5a4baac405474d75680f9a4eb",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "npm:@radix-ui/react-use-layout-effect@1.1.1": {
+    "revision": "fcef0668a5c827e5a4baac405474d75680f9a4eb",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "npm:@radix-ui/react-use-rect@1.1.1": {
+    "revision": "fcef0668a5c827e5a4baac405474d75680f9a4eb",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "npm:@radix-ui/react-use-size@1.1.1": {
+    "revision": "fcef0668a5c827e5a4baac405474d75680f9a4eb",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "npm:@radix-ui/rect@1.1.1": {
+    "revision": "fcef0668a5c827e5a4baac405474d75680f9a4eb",
+    "revisionBasis": "published-package-or-version-tag"
+  },
+  "npm:html-parse-stringify@3.0.1": {
+    "revision": "ada9e1448f34a57c17e7e23ba4af6d217e3d7baf",
+    "revisionBasis": "repository-license-snapshot-not-package-commit"
+  },
+  "npm:react-remove-scroll-bar@2.3.8": {
+    "revision": "8ca9ba5ea52de03308fe8ced94f7b159a44d28ff",
+    "revisionBasis": "repository-license-snapshot-not-package-commit"
+  }
+}
