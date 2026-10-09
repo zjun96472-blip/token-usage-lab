@@ -23,6 +23,14 @@
   "keywords": [],
   "author": "Jason Young",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zjun96472-blip/token-usage-lab.git"
+  },
+  "homepage": "https://github.com/zjun96472-blip/token-usage-lab",
+  "bugs": {
+    "url": "https://github.com/zjun96472-blip/token-usage-lab/issues"
+  },
   "packageManager": "pnpm@10.12.3",
   "devDependencies": {
     "@tauri-apps/cli": "^2.10.1",

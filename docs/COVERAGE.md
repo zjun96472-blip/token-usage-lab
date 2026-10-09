@@ -1,8 +1,11 @@
 # Cross-tool coverage
 
-This is a local Windows desktop application with a browser development preview,
+This is a local Windows/macOS desktop application with a browser development preview,
 not a website that can automatically inspect every device or online account.
 Both interfaces use the same native collector and isolated SQLite ledger.
+The existing-log checks below were performed on Windows. macOS native CI
+startup has passed for Apple Silicon and Intel, but real Mac tool logs remain
+unverified. An installed adapter is not proof of real-device compatibility.
 
 ## Implemented adapters
 
