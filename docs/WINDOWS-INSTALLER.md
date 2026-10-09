@@ -45,4 +45,4 @@
 
 遇到问题时提供程序版本、Windows 版本、CPU 架构、工具版本和已遮挡个人信息的采集状态截图。不要公开聊天日志、数据库、密钥或配置文件。
 
-该 EXE 使用 Tauri 标准 NSIS 安装器包装此前已验收的应用，应用二进制未改动。安装包来源和本次验证范围见 Release 的 `WINDOWS-INSTALLER-PROVENANCE.json`，不代表所有电脑、企业策略或缺少 WebView2 的环境均已验收。
+该 EXE 使用 Tauri 标准 NSIS 安装器包装此前已验收的应用，没有重新编译。Tauri 会将程序中的三个字节安装类型标记从 `UNK` 改为 `NSS`；校验只允许这一变化，其余字节必须完全相同。安装包来源和本次验证范围见 Release 的 `WINDOWS-INSTALLER-PROVENANCE.json`，不代表所有电脑、企业策略或缺少 WebView2 的环境均已验收。

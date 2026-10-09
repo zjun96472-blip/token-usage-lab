@@ -45,7 +45,7 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw 'Packaging tests failed' }
           node scripts/package-windows-installer.mjs prepare
           if ($LASTEXITCODE -ne 0) { throw 'Installer input verification failed' }
-      - name: Bundle unchanged application using Tauri NSIS
+      - name: Bundle application using standard Tauri NSIS
         shell: pwsh
         run: |
           pnpm exec tauri bundle --ci --bundles nsis --features desktop,custom-protocol --config src-tauri/tauri.installer.conf.json --no-sign

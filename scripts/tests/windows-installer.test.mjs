@@ -3,7 +3,10 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { stageInstaller } from "../package-windows-installer.mjs";
+import {
+  stageInstaller,
+  nsisExecutableHash,
+} from "../package-windows-installer.mjs";
 import { digest, CONTENTS } from "../package-tryout.mjs";
 
 function fixture(t) {
@@ -17,8 +20,10 @@ function fixture(t) {
   app.writeUInt32LE(64, 0x3c);
   app.writeUInt32LE(0x4550, 64);
   app.writeUInt16LE(0x8664, 68);
+  app.write("__TAURI_BUNDLE_TYPE_VAR_UNK", 80, "ascii");
   const expected = {
     executableSha256: digest(app),
+    installedExecutableSha256: nsisExecutableHash(app),
     runtimeFileCount: 1,
     tag: "v0.1.0-beta.1",
     archiveSha256: "a".repeat(64),
@@ -135,6 +140,25 @@ test("installer refuses user-data metadata and altered upstream attribution", (t
   fs.writeFileSync(path.join(license.portable, "LICENSE"), "replacement\n");
   license.checksums();
   assert.throws(license.stage);
+});
+
+test("only the documented Tauri bundle marker is permitted to change in the installed executable", () => {
+  const original = Buffer.from("prefix__TAURI_BUNDLE_TYPE_VAR_UNKsuffix");
+  const expected = Buffer.from("prefix__TAURI_BUNDLE_TYPE_VAR_NSSsuffix");
+  assert.equal(nsisExecutableHash(original), digest(expected));
+  assert.equal(original.toString(), "prefix__TAURI_BUNDLE_TYPE_VAR_UNKsuffix");
+  assert.notEqual(
+    nsisExecutableHash(original),
+    digest(Buffer.from("changed__TAURI_BUNDLE_TYPE_VAR_NSSsuffix")),
+  );
+  assert.throws(
+    () => nsisExecutableHash(Buffer.from("missing")),
+    /one unpatched/,
+  );
+  assert.throws(
+    () => nsisExecutableHash(Buffer.concat([original, original])),
+    /one unpatched/,
+  );
 });
 
 test("standard installer stays per-user, without custom scripts, signing claims or automatic updates", () => {

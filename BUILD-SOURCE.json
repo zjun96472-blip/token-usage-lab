@@ -23,8 +23,8 @@
     },
     {
       "file": ".github/workflows/build-windows-installer.yml",
-      "sha256": "0fce8110d80f4ed421d7face925624c53ac96253f8da5d1d305b227030583d6d",
-      "bytes": 2995
+      "sha256": "3a0a2543ba2a3b93e066badebf6b76965bfa9cb7eba861f1ce75a8089cb9d70a",
+      "bytes": 2994
     },
     {
       "file": ".github/workflows/ci.yml",
@@ -68,8 +68,8 @@
     },
     {
       "file": "docs/BUILDING.md",
-      "sha256": "960e014f0c05123c96e3dca4750fe863b71b63ff7b0f983dc9e9f9c2426d9645",
-      "bytes": 3874
+      "sha256": "facb99d93f10a0b66daeb2195d75229dc857fbe700495ba05a70ca41898afbdb",
+      "bytes": 4064
     },
     {
       "file": "docs/COVERAGE.md",
@@ -103,8 +103,8 @@
     },
     {
       "file": "docs/WINDOWS-INSTALLER.md",
-      "sha256": "2867d369c233c894faae0101fdefcf45e8e86560b4e84fe17936c5023772fef2",
-      "bytes": 3838
+      "sha256": "da5b6ad6a73a2c7dbcacb6c85718c7d290c660ba10d39bb9c9ff3b4c00e2e1e3",
+      "bytes": 3974
     },
     {
       "file": "docs/images/overview.png",
@@ -203,8 +203,8 @@
     },
     {
       "file": "scripts/package-windows-installer.mjs",
-      "sha256": "d25bd040553d5b4a0133498378854c90e1beeb3039206725d765a61c4d065d8a",
-      "bytes": 9015
+      "sha256": "25ca00cc70e8a20508cd62f0c4c97cf803d280b7e71a60891525bb059480c1bf",
+      "bytes": 9990
     },
     {
       "file": "scripts/tests/export-build-source.test.mjs",
@@ -233,8 +233,8 @@
     },
     {
       "file": "scripts/tests/windows-installer.test.mjs",
-      "sha256": "02695fc637e6b1f03ab67e8b08cfe294c9f221a4c95b0316918180f09554524c",
-      "bytes": 5790
+      "sha256": "fd5259c9d9f522a4beeca3ddb3509fe5ccdcce50569d152f850e3b8cc25209a9",
+      "bytes": 6668
     },
     {
       "file": "scripts/verify-macos-download.mjs",
@@ -243,8 +243,8 @@
     },
     {
       "file": "scripts/verify-windows-installer.ps1",
-      "sha256": "f014caac502cce2f4eaf59cbb50719979cf31fcbc86fdacf8121c81aa2369473",
-      "bytes": 7333
+      "sha256": "7aa81871c34fb06ebb3ffa98183526d0146cfd8f62e247626b11e6bc3af17d68",
+      "bytes": 7394
     },
     {
       "file": "scripts/vite-usage-bridge.ts",
@@ -253,8 +253,8 @@
     },
     {
       "file": "scripts/windows-installer-source.json",
-      "sha256": "958f38bba78e3d09bffdbdb5bb260fe44dcd9b47fdaa6b02421e6be1f176f48c",
-      "bytes": 505
+      "sha256": "dbbaf1e414219506f55835b7fec21ffe0a93bb8a6d167dab57abaf98f07a9932",
+      "bytes": 604
     },
     {
       "file": "src-tauri/Cargo.lock",
