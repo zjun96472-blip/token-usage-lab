@@ -1,0 +1,74 @@
+name: Build Windows Installer
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-installer
+  cancel-in-progress: false
+
+jobs:
+  package:
+    runs-on: windows-2022
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: "22"
+      - name: Install locked packaging tools
+        shell: pwsh
+        run: |
+          corepack enable
+          if ($LASTEXITCODE -ne 0) { throw 'Corepack setup failed' }
+          corepack prepare pnpm@10.12.3 --activate
+          if ($LASTEXITCODE -ne 0) { throw 'Pinned pnpm setup failed' }
+          pnpm install --frozen-lockfile
+          if ($LASTEXITCODE -ne 0) { throw 'Dependency installation failed' }
+          rustup toolchain install 1.89.0 --profile minimal
+          if ($LASTEXITCODE -ne 0) { throw 'Pinned Rust installation failed' }
+          rustup override set 1.89.0
+          if ($LASTEXITCODE -ne 0) { throw 'Pinned Rust selection failed' }
+      - name: Check source and prepare verified portable application
+        shell: pwsh
+        run: |
+          node scripts/check-source.mjs
+          if ($LASTEXITCODE -ne 0) { throw 'Source checks failed' }
+          node scripts/audit-public-source.mjs
+          if ($LASTEXITCODE -ne 0) { throw 'Source manifest failed' }
+          node --test scripts/tests/*.test.mjs
+          if ($LASTEXITCODE -ne 0) { throw 'Packaging tests failed' }
+          node scripts/package-windows-installer.mjs prepare
+          if ($LASTEXITCODE -ne 0) { throw 'Installer input verification failed' }
+      - name: Bundle unchanged application using Tauri NSIS
+        shell: pwsh
+        run: |
+          pnpm exec tauri bundle --ci --bundles nsis --features desktop,custom-protocol --config src-tauri/tauri.installer.conf.json --no-sign
+          if ($LASTEXITCODE -ne 0) { throw 'NSIS packaging failed' }
+      - name: Verify install, startup, reinstall and uninstall
+        shell: pwsh
+        run: ./scripts/verify-windows-installer.ps1
+      - name: Stage verified installer
+        shell: pwsh
+        run: node scripts/package-windows-installer.mjs stage
+      - name: Upload installer candidate
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: TokenUsageLab-windows-installer-${{ github.run_id }}
+          path: release/windows-installer/*
+          if-no-files-found: error
+          retention-days: 7
+      - name: Upload verification evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: windows-installer-verification-${{ github.run_id }}
+          path: .acceptance/windows-installer-verification.json
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 7

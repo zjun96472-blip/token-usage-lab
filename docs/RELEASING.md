@@ -6,6 +6,8 @@
 
 `v0.1.0-beta.1` 复用已验收的应用版本 0.1.0，不因公开下载渠道而重编译程序。新增的是公开仓库、文档和分发记录。Release 的 `PROVENANCE.json` 记录源码导入、原构建标识、运行时源码对应关系、文件哈希及限制；不声称安装文件来自本标签的一次全新编译或实现了可复现构建。
 
+`v0.1.0-beta.2` 只新增 Windows NSIS `Setup.exe` 分发。使用 `Build Windows Installer` 工作流从明确的 `canonical` 提交构建安装器，固定并核对 beta.1 程序与运行时源码。工作流验证通过后，按下述草稿、校验和未登录下载流程发布；Mac 和便携 ZIP 继续链接 beta.1，不重新上传或覆盖。安装器附 `WINDOWS-INSTALLER-PROVENANCE.json` 与 `WINDOWS-INSTALLER-SHA256SUMS.txt`。
+
 ## 后续版本
 
 1. 从 `canonical` 的明确完整提交构建，记录源清单和依赖锁文件。测试、审查通过后才能创建发布标签。

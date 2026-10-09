@@ -1,0 +1,27 @@
+{
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "createUpdaterArtifacts": false,
+    "publisher": "Token Usage Lab",
+    "licenseFile": "../LICENSE",
+    "resources": {
+      "../.acceptance/installer-resources/LICENSE": "LICENSE",
+      "../.acceptance/installer-resources/THIRD-PARTY-NOTICES.txt": "THIRD-PARTY-NOTICES.txt",
+      "../.acceptance/installer-resources/README.md": "README.md",
+      "../.acceptance/installer-resources/APP-BUILD-INFO.json": "APP-BUILD-INFO.json",
+      "../.acceptance/installer-resources/INSTALLER-INFO.json": "INSTALLER-INFO.json"
+    },
+    "windows": {
+      "allowDowngrades": false,
+      "webviewInstallMode": { "type": "downloadBootstrapper", "silent": true },
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": ["SimpChinese", "English"],
+        "displayLanguageSelector": false,
+        "startMenuFolder": "Token Usage Lab",
+        "installerIcon": "icons/icon.ico"
+      }
+    }
+  }
+}
