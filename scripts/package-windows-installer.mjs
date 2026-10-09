@@ -22,6 +22,19 @@ export const PIN = JSON.parse(
 const readJson = (file) => JSON.parse(fs.readFileSync(file, "utf8"));
 const sha = (file) => digest(fs.readFileSync(file));
 
+export function nsisExecutableHash(app) {
+  // Tauri 2.10.1 changes only this bundle marker before packaging, then restores its input.
+  const marker = Buffer.from("__TAURI_BUNDLE_TYPE_VAR_UNK");
+  const offset = app.indexOf(marker);
+  assert(
+    offset >= 0 && app.indexOf(marker, offset + 1) === -1,
+    "Expected one unpatched Tauri bundle marker",
+  );
+  const expected = Buffer.from(app);
+  Buffer.from("__TAURI_BUNDLE_TYPE_VAR_NSS").copy(expected, offset);
+  return digest(expected);
+}
+
 function runtimeFiles(root) {
   const files = [];
   function walk(relative) {
@@ -61,6 +74,11 @@ export function stageInstaller(
     digest(app),
     expected.executableSha256,
     "Application differs from the accepted portable build",
+  );
+  assert.equal(
+    nsisExecutableHash(app),
+    expected.installedExecutableSha256,
+    "Unexpected NSIS bundle marker result",
   );
   const records = read("SHA256SUMS.txt")
     .toString("utf8")
@@ -123,7 +141,12 @@ export function stageInstaller(
             originalRelease: expected.tag,
             originalArchiveSha256: expected.archiveSha256,
             executableSha256: expected.executableSha256,
-            mode: "Tauri NSIS packaging of an unchanged, previously accepted executable",
+            installedExecutableSha256: expected.installedExecutableSha256,
+            mode: "Tauri NSIS packaging of the accepted executable, without recompilation",
+            binaryDifference:
+              "Only the three-byte bundle marker changes from UNK to NSS; all other bytes must match",
+            markerSource:
+              "https://github.com/tauri-apps/tauri/blob/tauri-cli-v2.10.1/crates/tauri-bundler/src/bundle.rs",
             installationScope: "current-user",
             digitalSignature: "unsigned",
             includesUserData: false,

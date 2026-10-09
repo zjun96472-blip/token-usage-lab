@@ -29,7 +29,7 @@ function Run-Setup([string]$File, [string]$Arguments) {
     if ($process.ExitCode -ne 0) { throw "Installer failed: $($process.ExitCode)" }
 }
 function Check-Installed {
-    if ((Hash $installedExe) -ne $pin.executableSha256) { throw 'Installed application differs from the approved executable' }
+    if ((Hash $installedExe) -ne $pin.installedExecutableSha256) { throw 'Installed application differs beyond the permitted Tauri bundle marker' }
     $resources = Join-Path $root '.acceptance/installer-resources'
     foreach ($file in (Get-ChildItem -LiteralPath $resources -File)) {
         if ((Hash (Join-Path $installDirectory $file.Name)) -ne (Hash $file.FullName)) { throw "Installed resource changed: $($file.Name)" }
@@ -91,9 +91,9 @@ try {
     $report.reinstallPreservesLedger = $true
     $report.uninstallPreservesLedger = $true
     $report.uninstallPreservesUnownedFiles = $true
-    $report.installedExecutableSha256 = $pin.executableSha256
+    $report.installedExecutableSha256 = $pin.installedExecutableSha256
     $report.signature = (Get-AuthenticodeSignature -LiteralPath $installer).Status.ToString()
-    $report.limitations = @('Disposable Windows Server 2022 runner', 'Missing-WebView2 download path not exercised', 'SmartScreen and managed-device policies not validated', 'Application binary unchanged from the earlier Windows 11 candidate')
+    $report.limitations = @('Disposable Windows Server 2022 runner', 'Missing-WebView2 download path not exercised', 'SmartScreen and managed-device policies not validated', 'Application differs from the Windows 11 candidate only by the three-byte Tauri NSIS bundle marker')
 } finally {
     $json = $report | ConvertTo-Json -Depth 8
     [IO.File]::WriteAllText((Join-Path $root '.acceptance/windows-installer-verification.json'), $json + "`n", [Text.UTF8Encoding]::new($false))
